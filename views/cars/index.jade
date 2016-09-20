@@ -1,0 +1,13 @@
+extends ./../layout
+
+block content
+    h1 Cars List
+    p Welcome to Cars List
+
+    a(href="/cars/new") Create a New Car
+
+    ul
+    for car in cars
+        li
+            | #{car.model_year} #{car.make} #{car.model}
+            a(href="cars/#{car._id}") Show
