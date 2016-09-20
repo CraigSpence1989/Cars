@@ -9,7 +9,12 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var cars = require('./routes/cars');
 
+var connect = require('connect')
+var methodOverride = require('method-override')
+
 var app = express();
+
+// override with POST having ?_method=DELETE
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,6 +27,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+
+app.use(methodOverride('_method'));
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 

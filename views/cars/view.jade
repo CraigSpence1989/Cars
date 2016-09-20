@@ -1,6 +1,9 @@
 extends ./../layout
 
 block content
-    h1 Car Details
+    h1 Car Details #{cars._id}
 
-    p #{cars.make} #{cars.model} #{cars.model_year}
+    form(name="new-car" method="POST" action="/cars/#{cars._id}?_method=delete")
+
+        p #{cars.make} #{cars.model} #{cars.model_year}
+        input(type="Submit" value="Delete Car")

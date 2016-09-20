@@ -1,0 +1,18 @@
+extends ./../layout
+
+block content
+    h1 Edit Car
+
+    form(name="new-car" method="POST" action="/cars/#{cars._id}?_method=put")
+
+        p
+            label(for="make") Make
+            input(type="text" id="make" name="make" value="#{cars.make}" required)
+        p
+            label(for="model") Model
+            input(type="text" id="model" name="model" value="#{cars.model}" required)
+        p
+            label(for="model_year") Model Year
+            input(type="text" id="model_year" name="model_year" value="#{cars.model_year}" required)
+        p
+            input(type="Submit" value="Update Car")
